@@ -23,16 +23,29 @@ public class SimulateRover{
 
         int x, y = 0;
         int angle = 0;
+        int instruction_number = 0;
 
         //file
-       
 
         try {
 
             File myObj = new File(file);
             Scanner reader = new Scanner(myObj);
+            String regex = "[.\\s\\.]";
+
+            while (reader.hasNextLine()){
+                
+                String line = reader.nextLine().trim();
+                
+                String[] command_line = line.split(regex);
+
+                System.out.println(command_line);
+            }
             
-        } catch (FileNotFoundException e) {
+        } 
+        
+        
+        catch (FileNotFoundException e) {
             // TODO: handle exception
             System.out.println(e.getMessage());
         }
