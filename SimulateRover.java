@@ -26,7 +26,7 @@ public class SimulateRover{
         int x = 0;
         int y = 0;
         int angle = 0;
-        int instruction_number = 0;
+        int instruction_number = 1;
 
         //file
 
@@ -46,7 +46,7 @@ public class SimulateRover{
 
                 if (command_line.length != 4){
                     System.out.println("I've encountered an instruction I don't understand, aborting (instruction %d)".formatted(instruction_number));
-                    System.exit(2);
+                    System.exit(1);
                 }
 
                 if (Arrays.asList(command_line).contains("move")){
@@ -79,7 +79,7 @@ public class SimulateRover{
 
                     int turn_angle = Integer.parseInt(command_line[1]);
 
-                    System.out.println("turn");
+                    // System.out.println("turn");
 
                     if (command_line[3].equals("clockwise")){
                         angle += turn_angle;
@@ -88,15 +88,19 @@ public class SimulateRover{
                     else if (command_line[3].equals("counterclockwise")){
                         angle -= turn_angle;
                     }
+                    else {
+                        System.out.println("I've encountered an instruction I don't understand, aborting (instruction %d)".formatted(instruction_number));
+                        System.exit(1);
+
+                    }
 
                     angle = Math.round(angle % 360);
 
+                    //"Turning {turn_angle:.2f} degrees {command_line[3]} (instruction {instruction_number:.2f})"
+                    System.out.println("Turning %d degrees %s (instruction %d)".formatted(turn_angle, command_line[3], instruction_number));
                     System.out.println("I'm at (%d, %d) facing %d degrees".formatted(x, y, angle));
 
-                    
                 }
-
-
 
                 instruction_number ++;
             }
