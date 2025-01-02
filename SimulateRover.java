@@ -13,14 +13,14 @@ public class SimulateRover{
             System.exit(1);
 
         }
+
+        simulate(args[0]);
     }
 
     //outside main scope
 
     public static void simulate(String file){
 
-        //read file first
 
-        //see you l8er
     }
 }
