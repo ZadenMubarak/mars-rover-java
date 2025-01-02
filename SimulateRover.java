@@ -76,7 +76,24 @@ public class SimulateRover{
                 }
 
                 else if (Arrays.asList(command_line).contains("turn")){
+
+                    int turn_angle = Integer.parseInt(command_line[1]);
+
                     System.out.println("turn");
+
+                    if (command_line[3].equals("clockwise")){
+                        angle += turn_angle;
+                    }
+
+                    else if (command_line[3].equals("counterclockwise")){
+                        angle -= turn_angle;
+                    }
+
+                    angle = Math.round(angle % 360);
+
+                    System.out.println("I'm at (%d, %d) facing %d degrees".formatted(x, y, angle));
+
+                    
                 }
 
 
