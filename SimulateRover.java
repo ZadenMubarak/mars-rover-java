@@ -21,6 +21,13 @@ public class SimulateRover{
 
     public static void simulate(String file){
 
+        int x, y = 0;
+        int angle = 0;
+
+        //file
+        File myObj = new File(file);
+        Scanner reader = new Scanner(myObj);
+
 
     }
 }
