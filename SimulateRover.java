@@ -25,8 +25,17 @@ public class SimulateRover{
         int angle = 0;
 
         //file
-        File myObj = new File(file);
-        Scanner reader = new Scanner(myObj);
+       
+
+        try {
+
+            File myObj = new File(file);
+            Scanner reader = new Scanner(myObj);
+            
+        } catch (FileNotFoundException e) {
+            // TODO: handle exception
+            System.out.println(e.getMessage());
+        }
 
 
     }
